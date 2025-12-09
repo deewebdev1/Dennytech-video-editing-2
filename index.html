@@ -1,153 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FREE 6 DAYS TRAINING</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREE 6 DAYS TRAINING</title>
 
-  <!-- Orbitron font -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Font Awesome for arrow icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
-    }
+body{
+  min-height:100vh;
+  background: linear-gradient(135deg,#7f00ff,#e100ff,#00c6ff,#56ab2f);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:1.5rem;
+}
 
-    body {
-      background: #fff;
-      color: #b30000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
-      text-align: center;
-    }
+.container{
+  max-width:500px;
+  background:rgba(255,255,255,0.92);
+  border-radius:25px;
+  padding:2.8rem 2rem;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,0.2);
+  animation:float 5s infinite ease-in-out;
+}
 
-    .container {
-      max-width: 480px;
-      background: #fff;
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 0 30px rgba(179, 0, 0, 0.15);
-      animation: fadeIn 0.8s ease;
-    }
+h1{
+  font-size:1.9rem;
+  background:linear-gradient(45deg,#7f00ff,#ff416c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:.8rem;
+}
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #b30000;
-    }
+h2{
+  font-size:1rem;
+  color:#666;
+  margin-bottom:1.2rem;
+}
 
-    h2 {
-      font-size: 1.1rem;
-      margin-bottom: 1.2rem;
-      color: #d00000;
-    }
+.desc{
+  font-size:.95rem;
+  color:#444;
+  margin-bottom:1.5rem;
+  line-height:1.6;
+}
 
-    p {
-      font-size: 0.95rem;
-      color: #444;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
+.feature{
+  background:#f5ebff;
+  border-left:5px solid #7f00ff;
+  padding:.8rem;
+  margin:.6rem 0;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-size:.85rem;
+  color:#333;
+}
 
-    .highlight {
-      background: #ffe5e5;
-      border: 1px solid #ff9999;
-      color: #b30000;
-      padding: 0.7rem 1rem;
-      border-radius: 8px;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
+.feature i{
+  color:#7f00ff;
+}
 
-    .arrow {
-      font-size: 2rem;
-      color: #b30000;
-      margin: 1rem 0;
-      animation: bounce 1.5s infinite;
-    }
+.arrow{
+  font-size:2rem;
+  color:#7f00ff;
+  margin:1.2rem 0;
+  animation:bounce 1.5s infinite;
+}
 
-    /* BIG CTA BUTTON */
-    .btn {
-      background: #b30000;
-      color: #fff;
-      padding: 1.4rem 2.5rem;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-decoration: none;
-      display: inline-block;
-      animation: shake 1.5s infinite ease-in-out;
-      box-shadow: 0 0 25px rgba(179, 0, 0, 0.4);
-      transition: all 0.3s ease;
-    }
+.btn{
+  display:inline-block;
+  margin-top:1rem;
+  padding:1.2rem 2.4rem;
+  background:linear-gradient(45deg,#7f00ff,#ff416c,#00c6ff);
+  color:#fff;
+  border-radius:40px;
+  font-weight:700;
+  font-size:1.1rem;
+  text-decoration:none;
+  animation:pulse 1.5s infinite;
+  transition:.3s;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(179, 0, 0, 0.6);
-    }
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+footer{
+  margin-top:1.4rem;
+  font-size:.75rem;
+  color:#777;
+}
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
-    @keyframes shake {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(2deg); }
-      50% { transform: rotate(-2deg); }
-      75% { transform: rotate(2deg); }
-    }
+@keyframes bounce{
+  50%{transform:translateY(8px);}
+}
 
-    footer {
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: #999;
-    }
+@keyframes pulse{
+  0%{box-shadow:0 0 0 rgba(0,0,0,0);}
+  50%{box-shadow:0 0 20px rgba(127,0,255,0.5);}
+}
 
-    @media (max-width: 600px) {
-      h1 { font-size: 1.4rem; }
-      .btn { font-size: 1.1rem; padding: 1.2rem 2rem; }
-    }
-  </style>
+@keyframes float{
+  50%{transform:translateY(-10px);}
+}
+
+@media(max-width:500px){
+  h1{font-size:1.5rem}
+  .btn{font-size:1rem}
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>FREE 6 DAYS VIDEO EDITING & ANIMATING TRAINING</h1>
-    <h2>Limited Spots Available</h2>
 
-    <p class="highlight">All You Need is Your Smartphone & Data Connection</p>
+<div class="container">
+  <h1>FREE 6 DAYS VIDEO EDITING & ANIMATION MASTERCLASS</h1>
+  <h2>Learn on Your Phone — No Laptop Required</h2>
 
-    <div class="arrow">
-      <i class="fa-solid fa-angles-down"></i>
-    </div>
+  <p class="desc">
+    Join hundreds of young creatives learning how to edit videos, create animations,
+    and design eye-catching content using just their smartphones.
+  </p>
 
-    <p><strong>Click the big red button below to join for FREE now</strong></p>
+  <div class="feature"><i class="fa-solid fa-video"></i> Learn professional video editing techniques</div>
+  <div class="feature"><i class="fa-solid fa-wand-magic-sparkles"></i> Create smooth animations easily</div>
+  <div class="feature"><i class="fa-solid fa-mobile-screen"></i> Works perfectly on Android & iPhone</div>
+  <div class="feature"><i class="fa-solid fa-gift"></i> 100% FREE — No hidden charges</div>
 
-    <a href="https://chat.whatsapp.com/CuOuexEjt9SJjd1Tm7S9Ad" class="btn">
-      CLICK HERE TO JOIN NOW
-    </a>
+  <div class="arrow">
+    <i class="fa-solid fa-angles-down"></i>
   </div>
+
+  <a href="https://chat.whatsapp.com/Ld0shfPxnVxIvmuKPYul0L" class="btn">
+    JOIN FREE TRAINING NOW
+  </a>
+
+  <footer>
+    Powered by Dennytech Digital Academy </footer>
+</div>
 
 </body>
 </html>
