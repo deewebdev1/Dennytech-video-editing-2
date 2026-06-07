@@ -3,131 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FREE 6 DAYS TRAINING</title>
+<title>Free 6-Day Video Editing & Animation Training — Dennytech Digital Academy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-body{
-  min-height:100vh;
-  background: linear-gradient(135deg,#7f00ff,#e100ff,#00c6ff,#56ab2f);
-  background-size:400% 400%;
-  animation:bgMove 12s ease infinite;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:1.5rem;
+:root {
+  --ink: #0a0a0a;
+  --white: #ffffff;
+  --accent: #ff3d00;
+  --accent2: #ff9100;
+  --mid: #1a1a1a;
+  --muted: #666;
+  --surface: #f5f5f5;
+  --border: #e8e8e8;
 }
 
-.container{
-  max-width:500px;
-  background:rgba(255,255,255,0.92);
-  border-radius:25px;
-  padding:2.8rem 2rem;
-  text-align:center;
-  box-shadow:0 25px 50px rgba(0,0,0,0.2);
-  animation:float 5s infinite ease-in-out;
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
 }
 
-h1{
-  font-size:1.9rem;
-  background:linear-gradient(45deg,#7f00ff,#ff416c);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:.8rem;
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ink);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-h2{
-  font-size:1rem;
-  color:#666;
-  margin-bottom:1.2rem;
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
 }
 
-.desc{
-  font-size:.95rem;
-  color:#444;
-  margin-bottom:1.5rem;
-  line-height:1.6;
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+  overflow: hidden;
 }
 
-.feature{
-  background:#f5ebff;
-  border-left:5px solid #7f00ff;
-  padding:.8rem;
-  margin:.6rem 0;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  font-size:.85rem;
-  color:#333;
+/* Glowing blob background */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255,61,0,0.18) 0%, rgba(255,145,0,0.10) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: glow 8s ease-in-out infinite;
 }
 
-.feature i{
-  color:#7f00ff;
+@keyframes glow {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+  50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
 }
 
-.arrow{
-  font-size:2rem;
-  color:#7f00ff;
-  margin:1.2rem 0;
-  animation:bounce 1.5s infinite;
+.hero > * { position: relative; z-index: 1; }
+
+/* FREE badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255,61,0,0.15);
+  border: 1px solid rgba(255,61,0,0.4);
+  color: var(--accent2);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .45rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+  animation: fadeUp .6s ease both;
 }
 
-.btn{
-  display:inline-block;
-  margin-top:1rem;
-  padding:1.2rem 2.4rem;
-  background:linear-gradient(45deg,#7f00ff,#ff416c,#00c6ff);
-  color:#fff;
-  border-radius:40px;
-  font-weight:700;
-  font-size:1.1rem;
-  text-decoration:none;
-  animation:pulse 1.5s infinite;
-  transition:.3s;
+.badge span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 1.4s infinite;
 }
 
-.btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
 }
 
-footer{
-  margin-top:1.4rem;
-  font-size:.75rem;
-  color:#777;
+/* Hero headline */
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 780px;
+  margin-bottom: 1.4rem;
+  animation: fadeUp .7s .1s ease both;
 }
 
-@keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+.hero-title .highlight {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-@keyframes bounce{
-  50%{transform:translateY(8px);}
+.hero-sub {
+  font-size: 1.05rem;
+  color: #aaa;
+  max-width: 460px;
+  line-height: 1.7;
+  margin-bottom: 2.8rem;
+  animation: fadeUp .7s .2s ease both;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 0 rgba(0,0,0,0);}
-  50%{box-shadow:0 0 20px rgba(127,0,255,0.5);}
+/* Phone badge */
+.phone-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: .55rem 1.2rem;
+  font-size: .82rem;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+  animation: fadeUp .7s .3s ease both;
 }
 
-@keyframes float{
-  50%{transform:translateY(-10px);}
+.phone-badge i { color: var(--accent2); }
+
+/* CTA button */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 1.1rem 2.4rem;
+  border-radius: 100px;
+  transition: transform .25s, box-shadow .25s;
+  animation: fadeUp .7s .4s ease both;
+  box-shadow: 0 8px 30px rgba(255,61,0,0.35);
 }
 
-@media(max-width:500px){
-  h1{font-size:1.5rem}
-  .btn{font-size:1rem}
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 40px rgba(255,61,0,0.5);
+}
+
+.cta-btn i { font-size: 1.1rem; }
+
+.cta-note {
+  margin-top: .9rem;
+  font-size: .78rem;
+  color: #555;
+  animation: fadeUp .7s .5s ease both;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  animation: fadeUp 1s .8s ease both;
+}
+
+.scroll-hint i {
+  animation: arrowBounce 1.8s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+/* ── SECTION BASE ── */
+section {
+  padding: 5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ── WHAT YOU'LL LEARN ── */
+.learn-section {
+  background: #111;
+  border-top: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.section-label {
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: .8rem;
+}
+
+.section-title span {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  color: #888;
+  font-size: .95rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Curriculum cards */
+.curriculum {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.day-card {
+  background: #161616;
+  border: 1px solid #242424;
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: border-color .2s, transform .2s;
+}
+
+.day-card:hover {
+  border-color: rgba(255,61,0,0.35);
+  transform: translateX(4px);
+}
+
+.day-num {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,61,0,0.2), rgba(255,145,0,0.15));
+  border: 1px solid rgba(255,61,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: .7rem;
+  font-weight: 800;
+  color: var(--accent2);
+  letter-spacing: .05em;
+}
+
+.day-content h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  margin-bottom: .3rem;
+}
+
+.day-content p {
+  font-size: .82rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ── BENEFITS ── */
+.benefits-section { background: var(--ink); }
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.benefit-item {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 14px;
+  padding: 1.4rem;
+  transition: border-color .2s;
+}
+
+.benefit-item:hover { border-color: rgba(255,61,0,0.3); }
+
+.benefit-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,61,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--accent2);
+  font-size: .95rem;
+}
+
+.benefit-item h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+
+.benefit-item p {
+  font-size: .78rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ── WHO IS THIS FOR ── */
+.audience-section {
+  background: #0d0d0d;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.audience-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.audience-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: .9rem;
+  color: #bbb;
+  padding: 1rem 1.2rem;
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 12px;
+}
+
+.audience-item i {
+  color: var(--accent);
+  width: 18px;
+  flex-shrink: 0;
+}
+
+/* ── FINAL CTA ── */
+.cta-section {
+  background: var(--ink);
+  text-align: center;
+}
+
+.cta-card {
+  background: linear-gradient(160deg, #1a0a00, #0a0a0a);
+  border: 1px solid rgba(255,61,0,0.2);
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(255,61,0,0.12), transparent 65%);
+  pointer-events: none;
+}
+
+.cta-card > * { position: relative; z-index: 1; }
+
+.cta-card .section-label { display: block; margin-bottom: 1rem; }
+
+.cta-card .section-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-bottom: .8rem;
+}
+
+.cta-card p {
+  color: #777;
+  font-size: .9rem;
+  max-width: 420px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid #181818;
+  font-size: .75rem;
+  color: #3a3a3a;
+}
+
+footer strong { color: #555; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 520px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2rem; }
+  .cta-card { padding: 2.5rem 1.4rem; }
 }
 </style>
-
-
 
 <!-- Meta Pixel Code -->
 <script>
@@ -146,37 +486,234 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=3537666019726200&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
-
 </head>
 
 <body>
 
-<div class="container">
-  <h1>FREE 6 DAYS VIDEO EDITING & ANIMATION MASTERCLASS</h1>
-  <h2>Learn on Your Phone — No Laptop Required</h2>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
 
-  <p class="desc">
-    Join hundreds of young creatives learning how to edit videos, create animations,
-    and design eye-catching content using just their smartphones.
+  <div class="badge"><span></span> Limited spots available — Join free</div>
+
+  <h1 class="hero-title">
+    Master Video Editing &<br>
+    <span class="highlight">Animation in 6 Days.</span>
+  </h1>
+
+  <p class="hero-sub">
+    A hands-on free training by Dennytech Digital Academy. Learn to create
+    professional videos and animations using only your smartphone.
   </p>
 
-  <div class="feature"><i class="fa-solid fa-video"></i> Learn professional video editing techniques</div>
-  <div class="feature"><i class="fa-solid fa-wand-magic-sparkles"></i> Create smooth animations easily</div>
-  <div class="feature"><i class="fa-solid fa-mobile-screen"></i> Works perfectly on Android & iPhone</div>
-  <div class="feature"><i class="fa-solid fa-gift"></i> 100% FREE — No hidden charges</div>
-
-  <div class="arrow">
-    <i class="fa-solid fa-angles-down"></i>
+  <div class="phone-badge">
+    <i class="fa-solid fa-mobile-screen"></i>
+    Works on Android & iPhone — no laptop needed
   </div>
 
-  <a href="https://chat.whatsapp.com/HOdoBNEU0juK0HWu25cDuX?mode=gi_t" class="btn">
-    JOIN FREE TRAINING NOW
+  <a href="https://chat.whatsapp.com/HOdoBNEU0juK0HWu25cDuX?mode=gi_t" class="cta-btn">
+    <i class="fa-brands fa-whatsapp"></i>
+    Join the Free Training
   </a>
 
-  <footer>
-    Powered by Dennytech Digital Academy </footer>
-</div>
+  <p class="cta-note">You'll be added to a WhatsApp group. 100% free.</p>
+
+  <div class="scroll-hint">
+    <span>Scroll to learn more</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+
+</section>
+
+
+<!-- ═══ CURRICULUM ═══ -->
+<section class="learn-section">
+  <div class="section-inner">
+    <p class="section-label reveal">6-Day Curriculum</p>
+    <h2 class="section-title reveal">What you'll <span>learn each day</span></h2>
+    <p class="section-desc reveal">
+      Each day is structured to build on the last — from basics all the way to
+      creating content you can proudly share or sell.
+    </p>
+
+    <div class="curriculum">
+
+      <div class="day-card reveal">
+        <div class="day-num">DAY 1</div>
+        <div class="day-content">
+          <h4>Introduction & App Setup</h4>
+          <p>Understand the tools, download the right apps, and configure your phone for editing like a pro.</p>
+        </div>
+      </div>
+
+      <div class="day-card reveal">
+        <div class="day-num">DAY 2</div>
+        <div class="day-content">
+          <h4>Video Editing Fundamentals</h4>
+          <p>Cutting, trimming, transitions, colour grading, and adding music — the foundation of every great video.</p>
+        </div>
+      </div>
+
+      <div class="day-card reveal">
+        <div class="day-num">DAY 3</div>
+        <div class="day-content">
+          <h4>Text, Titles & Motion Graphics</h4>
+          <p>Add professional-looking captions, animated titles, and lower thirds to your videos.</p>
+        </div>
+      </div>
+
+      <div class="day-card reveal">
+        <div class="day-num">DAY 4</div>
+        <div class="day-content">
+          <h4>Animation Basics</h4>
+          <p>Bring static elements to life — logos, text, shapes — using keyframes and motion presets.</p>
+        </div>
+      </div>
+
+      <div class="day-card reveal">
+        <div class="day-num">DAY 5</div>
+        <div class="day-content">
+          <h4>Advanced Effects & Reels</h4>
+          <p>Create viral-style reels and short-form content with eye-catching transitions and visual effects.</p>
+        </div>
+      </div>
+
+      <div class="day-card reveal">
+        <div class="day-num">DAY 6</div>
+        <div class="day-content">
+          <h4>Final Project + How to Monetise</h4>
+          <p>Put everything together in a real project, and learn exactly how to start earning with your new skill.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ BENEFITS ═══ -->
+<section class="benefits-section">
+  <div class="section-inner">
+    <p class="section-label reveal">Why Join</p>
+    <h2 class="section-title reveal">Everything you <span>get for free</span></h2>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-item reveal">
+        <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h4>Live Daily Sessions</h4>
+        <p>Step-by-step training delivered daily inside a private WhatsApp group.</p>
+      </div>
+
+      <div class="benefit-item reveal">
+        <div class="benefit-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h4>Phone-First Training</h4>
+        <p>Everything is designed to work on Android or iPhone. No laptop, no excuses.</p>
+      </div>
+
+      <div class="benefit-item reveal">
+        <div class="benefit-icon"><i class="fa-solid fa-users"></i></div>
+        <h4>Community Support</h4>
+        <p>Get feedback, ask questions, and learn alongside hundreds of other creatives.</p>
+      </div>
+
+      <div class="benefit-item reveal">
+        <div class="benefit-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h4>Certificate of Completion</h4>
+        <p>Receive a digital certificate after completing the full 6-day training.</p>
+      </div>
+
+      <div class="benefit-item reveal">
+        <div class="benefit-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+        <h4>Monetisation Guide</h4>
+        <p>Learn real ways to turn your editing skill into income — even as a beginner.</p>
+      </div>
+
+      <div class="benefit-item reveal">
+        <div class="benefit-icon"><i class="fa-solid fa-gift"></i></div>
+        <h4>100% Free</h4>
+        <p>No registration fee, no hidden charges. This is completely free to join.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WHO IS THIS FOR ═══ -->
+<section class="audience-section">
+  <div class="section-inner">
+    <p class="section-label reveal">Who This Is For</p>
+    <h2 class="section-title reveal">This training is <span>perfect for you</span> if…</h2>
+
+    <div class="audience-list">
+      <div class="audience-item reveal">
+        <i class="fa-solid fa-check"></i>
+        You're a student or young person looking to learn a valuable digital skill
+      </div>
+      <div class="audience-item reveal">
+        <i class="fa-solid fa-check"></i>
+        You create content for social media but your videos don't look professional yet
+      </div>
+      <div class="audience-item reveal">
+        <i class="fa-solid fa-check"></i>
+        You want to start a side hustle or freelance in video editing
+      </div>
+      <div class="audience-item reveal">
+        <i class="fa-solid fa-check"></i>
+        You have a smartphone and zero editing experience — that's all you need
+      </div>
+      <div class="audience-item reveal">
+        <i class="fa-solid fa-check"></i>
+        You want to grow a business or personal brand with quality video content
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta-section">
+  <div class="section-inner">
+    <div class="cta-card reveal">
+      <span class="section-label">Spots Are Limited</span>
+      <h2 class="section-title">Ready to start <span>your journey?</span></h2>
+      <p>
+        Join for free today and be part of the next set of trained
+        phone video editors from Dennytech Digital Academy.
+      </p>
+      <a href="https://chat.whatsapp.com/HOdoBNEU0juK0HWu25cDuX?mode=gi_t" class="cta-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        Join the Free Training Now
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© <span id="year"></span> <strong>Dennytech Digital Academy</strong> — All rights reserved.</p>
+</footer>
+
+
+<script>
+// Dynamic year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
